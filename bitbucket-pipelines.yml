@@ -1,6 +1,5 @@
 image: node:12.15.0
 options:
-  npm: true
   docker: true
 pipelines:
   default:
