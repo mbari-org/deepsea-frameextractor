@@ -1,5 +1,12 @@
 # MBARI Deep Sea Frame Extractor Changelog
 
+## [1.0.2](http://bitbucket.org/mbari/deepsea-frameextractor/compare/v1.0.1...v1.0.2) (2020-06-26)
+
+
+### Bug Fixes
+
+* **bitbucket-pipelines.yml:** added missing docker service ([330d209](http://bitbucket.org/mbari/deepsea-frameextractor/commits/330d209e08de969155f779f1726f2be2624115b2))
+
 ## [1.0.1](http://bitbucket.org/mbari/deepsea-frameextractor/compare/v1.0.0...v1.0.1) (2020-06-26)
 
 
