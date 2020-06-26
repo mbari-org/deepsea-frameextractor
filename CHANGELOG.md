@@ -1,5 +1,12 @@
 # MBARI Deep Sea Frame Extractor Changelog
 
+## [1.0.1](http://bitbucket.org/mbari/deepsea-frameextractor/compare/v1.0.0...v1.0.1) (2020-06-26)
+
+
+### Bug Fixes
+
+* **bitbucket-pipelines.yml:** removed unsupported pipeline option npm ([45d211d](http://bitbucket.org/mbari/deepsea-frameextractor/commits/45d211d8332bcbbfa862518c5aa2b389e513c7a4))
+
 # 1.0.0 (2020-06-26)
 
 
