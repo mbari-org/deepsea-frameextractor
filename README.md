@@ -1,8 +1,23 @@
-# README #
+[![MBARI](https://www.mbari.org/wp-content/uploads/2014/11/logo-mbari-3b.png)](http://www.mbari.org)
+
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+![Supported Platforms](https://img.shields.io/badge/Supported%20Platforms-Windows%20%7C%20macOS%20%7C%20Linux-green)
+![license-GPL](https://img.shields.io/badge/license-GPL-blue)
+
+# About
 
 Frame extractor to convert movies into still images for labeling.  
 Extracts still frame per duration specified in --step of a movie, (optionally) deinterlaces, and saves as a png.
 Uses multiple cores to speed-up computation.
+
+# Questions?
+
+If you have any questions, or are interested in helping with the development, please contact me at: dcline@mbari.org
+
+*Danelle Cline*
+https://www.mbari.org/cline-danelle-e/
+
+---
   
 ## Run Examples
 *Arguments*
@@ -25,20 +40,20 @@ Uses multiple cores to speed-up computation.
 
 Extract one frames every 5 seconds from file D0232_20160501T000030Z.mov to your desktop, no deinterlacing
 ```bash
-docker run -v $PWD/data:/data  -v /Users/dcline/Desktop:/desktop frameextractor -i /data/D0232_20160501T000030Z.mov -o /desktop
+docker run -v $PWD/data:/data  -v /Users/dcline/Desktop:/desktop mbari/deepsea-frameextractor -i /data/D0232_20160501T000030Z.mov -o /desktop
 ```
 Extract one frame every 5 seconds from file D0232_20160501T000030Z.mov to your desktop, drop deinterlacing
 ```bash
-docker run -v $PWD/data:/data  -v /Users/dcline/Desktop:/desktop frameextractor -i /data/D0232_20160501T000030Z.mov -o /desktop  -d drop
+docker run -v $PWD/data:/data  -v /Users/dcline/Desktop:/desktop mbari/deepsea-frameextractor -i /data/D0232_20160501T000030Z.mov -o /desktop  -d drop
 ```
 Extract one frame every 2 seconds between 00:00:00 to 00:05:00 of file D0232_20160501T000030Z.mov to your desktop
 ```bash
-docker run -v $PWD/data:/data  -v /Users/dcline/Desktop:/desktop frameextractor -i /data/D0232_20160501T000030Z.mov -o /desktop -s 2 --start 00:00:00 --end 00:05:00
+docker run -v $PWD/data:/data  -v /Users/dcline/Desktop:/desktop mbari/deepsea-frameextractor -i /data/D0232_20160501T000030Z.mov -o /desktop -s 2 --start 00:00:00 --end 00:05:00
 ```
 Extract 2 seconds of each video to your desktop, searching for videos matching the pattern D*.MOV recursively in the /data directory. 
 This will split compute for each video across each CPU available.
 ```bash
-docker run -v $PWD/data:/data  -v /Users/dcline/Desktop:/desktop frameextractor -i /data  --keys '/**/D*.MOV' -o /desktop -s 2
+docker run -v $PWD/data:/data  -v /Users/dcline/Desktop:/desktop mbari/deepsea-frameextractor -i /data  --keys '/**/D*.MOV' -o /desktop -s 2
 ```
 
 ## Developer notes 
@@ -49,8 +64,7 @@ changes made in that /tmp/code directory, even after the container closes will p
 docker run -v $PWD:/tmp/code -it --entrypoint='bash' mbari/deepsea-frameextractor
 ```
 
-Exiftools
-All tags available by format
-https://sno.phy.queensu.ca/~phil/exiftool/TagNames/index.html
-For PNG
-https://sno.phy.queensu.ca/~phil/exiftool/TagNames/PNG.html
+### Exiftools
+
+- All tags available by format: https://sno.phy.queensu.ca/~phil/exiftool/TagNames/index.html
+- For PNG https://sno.phy.queensu.ca/~phil/exiftool/TagNames/PNG.html
